@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro</title>
+        <!-- Fontes do Google: Instrument Serif (títulos) e Instrument Sans (textos) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600&family=Instrument+Serif:ital@0;1&display=swap">
+    <!-- CSS comum a todas as páginas -->
+    <link rel="stylesheet" href="css/base.css">
+    <!-- CSS só desta página -->
+    <link rel="stylesheet" href="css/cadastro.css">
+  </head>
+  <body>
+     <nav class="menu">
+        <a href="index.html" class="logo">Sociedade Secreta</a>
+        <a href="index.html">Início</a>
+        <a href="dexter.html" aria-current="page">Dexter</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="login.html">Entrar</a>
+        <a href="cadastro.html">Cadastre-se</a>
+    </nav>
+
+    <main class="container">
+      <form>
+        <h1>Cadastro</h1>
+
+        <div class="input-box">
+          <label for="ipt_nomeUser">Nome completo:</label>
+          <input type="text" id="ipt_nomeUser" />
+          <span id="erro_nome" class="erro"></span>
+        </div>
+
+        <div class="input-box">
+          <label for="ipt_cpf">CPF:</label>
+          <input type="text" id="ipt_cpf" placeholder="000.000.000-00" />
+          <span id="erro_cpf" class="erro"></span>
+        </div>
+
+        <div class="input-box">
+          <label for="ipt_email">E-mail:</label>
+          <input type="email" id="ipt_email" placeholder="seu@gmail.com" />
+          <span id="erro_email" class="erro"></span>
+        </div>
+
+        <div class="input-box">
+          <label for="ipt_telefone">Telefone:</label>
+          <input type="text" id="ipt_telefone" placeholder="(00)00000-0000" />
+          <span id="erro_telefone" class="erro"></span>
+        </div>
+
+        <div class="input-box">
+          <label for="ipt_senha">Senha:</label>
+          <input type="password" id="ipt_senha" oninput="validacaoSenha()" />
+          <span id="erro_senha" class="erro"></span>
+        </div>
+
+        <div class="input-box">
+          <label for="ipt_confiSenha">Confirmação de senha:</label>
+          <input type="password" id="ipt_confiSenha" />
+          <span id="erro_confiSenha" class="erro"></span>
+        </div>
+
+        <div class="container-senha">
+          <div class="validacoes-senha">
+            <div id="" class="validacaoSenha" style="color: red">
+              Requisitos para uma senha segura
+            </div>
+            <div id="exibir" class="validacaoSenha" style="color: red">
+              Contem 8 caracteres
+            </div>
+            <div id="exibir2" class="validacaoSenha" style="color: red">
+              Letra maiuscula
+            </div>
+            <div id="exibir3" class="validacaoSenha" style="color: red">
+              Letra Minúscula
+            </div>
+            <div id="exibir4" class="validacaoSenha" style="color: red">
+              Caracteres espeial
+            </div>
+            <div id="exibir5" class="validacaoSenha" style="color: red">
+              Insegura
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label>
+            <input type="checkbox" />
+            Aceito os <a href="#">termos de uso</a> e a
+            <a href="#">política de privacidade</a>.
+          </label>
+        </div>
+
+        <button class="botao_cadastro" onclick="cadastrar()">Cadastrar</button>
+        <label>
+          Já possui cadastro?
+          <button class="botao_login" onclick="login()">Login</button>
+        </label>
+      </form>
+    </main>
+
+       <!-- RODAPÉ -->
+    <footer class="rodape">
+        <p class="logo-rodape"><em>Sociedade Secreta</em></p>
+        <p>Giovanna Silva Carneiro - Projeto individual</p>
+    </footer>
+  </body>
+</html>
+
+<script>
+    let listaUsuariosCadastrados = [];
+    let criterio = 0
+
+    function validacaoSenha() {
+      let senha = ipt_senha.value;
+      let tamanhoSenha = senha.length;
+      let letraMaiu = senha.toUpperCase();
+      let letraMinu = senha.toLowerCase();
+      let criterio = 0
+
+
+      //TAMANH0
+      if (tamanhoSenha >= 8) {
+        exibir.innerHTML = `<span style="color: #28a745;">Contem 8 caracteres ✅​</span>`;
+        criterio++;
+      } else {
+        exibir.innerHTML = `<span style="color: #dc3545;">Contem 8 caracteres ​✕​</span>`;
+      }
+
+      //MAIUSCULA
+      if (senha != letraMaiu) {
+        exibir2.innerHTML = `<span style="color: #28a745;">Letra maiuscula ✅​</span>`;
+        criterio++;
+      } else {
+        exibir2.innerHTML = `<span style="color: #dc3545;">Letra maiuscula ​✕​</span>`;
+      }
+
+      //MINUSCULA
+      if (senha != letraMinu) {
+        exibir3.innerHTML = `<span style="color: #28a745;">Letra Minúscula ✅​</span>`;
+        criterio++;
+      } else {
+        exibir3.innerHTML = `<span style="color: #dc3545;">Letra Minúscula ​✕​</span>`;
+      }
+      //CARACTERES
+      if (
+        senha.includes("!") ||
+        senha.includes("@") ||
+        senha.includes("#") ||
+        senha.includes("$") ||
+        senha.includes("%") ||
+        senha.includes("&") ||
+        senha.includes("*")
+      ) {
+        exibir4.innerHTML = `<span style="color: #28a745;">Caracteres especiais ✅</span>`;
+        criterio++;
+      } else {
+        exibir4.innerHTML = `<span style="color: #dc3545;">Caracteres especiais ✕</span>`;
+      }
+
+      // 5. Avaliação do Nível da Senha
+     if (senha === "") {
+      exibir5.innerHTML = `<span style="color: #dc3545; font-weight: bold;">Insegura</span>`;
+  } else if (criterio == 4) {
+      exibir5.innerHTML = `<span style="color: #28a745; font-weight: bold;">Forte 🔒</span>`;
+  } else if (criterio >= 2) {
+      exibir5.innerHTML = `<span style="color: #E5A823; font-weight: bold;">Média</span>`;
+  } else {
+      exibir5.innerHTML = `<span style="color: #dc3545; font-weight: bold;">Fraca</span>`;
+  }
+    }
+    function cadastrar() {
+      let nomeUser = ipt_nomeUser.value;
+      let cpf = ipt_cpf.value;
+      let email = ipt_email.value;
+      let telefone = ipt_telefone.value;
+      let senha = ipt_senha.value;
+      let confiSenha = ipt_confiSenha.value;
+
+      //VALIDANDO CAMPOS
+      if (ipt_nomeUser.value == "") {
+        erro_nome.innerHTML = "ERRO: Digite seu nome";
+        ipt_nomeUser.focus();
+      } else if (ipt_cpf.value == "") {
+        erro_cpf.innerHTML = "ERRO: Digite seu CPF";
+        ipt_cpf.focus();
+      } else if (ipt_cpf.value.length != 14) {
+        erro_cpf.innerHTML = "ERRO: Digite corretamente - 000.000.000-00";
+        ipt_cpf.value = "";
+        ipt_cpf.focus();
+      } else if (ipt_email.value == "") {
+        erro_email.innerHTML = "ERRO: Digite seu e-mail";
+        ipt_email.focus();
+      } else if (
+        !ipt_email.value.includes("@") ||
+        !ipt_email.value.endsWith(".com")
+      ) {
+        erro_email.innerHTML = "ERRO: Digite um e-mail válido";
+        ipt_email.focus();
+      } else if (ipt_telefone.value == "") {
+        erro_telefone.innerHTML = "ERRO: Digite seu telefone";
+        ipt_telefone.focus();
+      } else if (ipt_telefone.value.length != 14) {
+        erro_telefone.innerHTML = "ERRO: Digite corretamente - (00)00000-0000";
+        ipt_telefone.value = "";
+        ipt_telefone.focus();
+      } else if (ipt_senha.value == "") {
+        erro_senha.innerHTML = "ERRO: Digite sua senha";
+        ipt_senha.focus();
+      } else if (ipt_confiSenha.value == "") {
+        erro_confiSenha.innerHTML = "ERRO: Confirme sua senha";
+        ipt_confiSenha.focus();
+      } else if (ipt_senha.value != ipt_confiSenha.value) {
+        erro_confiSenha.innerHTML = "ERRO: As senhas não coincidem";
+        ipt_confiSenha.value = "";
+        ipt_confiSenha.focus();
+      }
+    }
+
+    function login() {}
+</script>
