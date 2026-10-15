@@ -1,0 +1,292 @@
+/* =============================================
+   BASE - Sociedade Secreta
+   Estilos que TODAS as páginas usam:
+   cores, fontes, menu, botões, molduras,
+   bilhetes e rodapé.
+   ============================================= */
+
+
+/* ---------- CORES E FONTES (variáveis) ---------- */
+/* Para usar uma cor: color: var(--creme); */
+:root {
+    --vinho-escuro: #2B0505;
+    --vinho: #4A0A0A;
+    --carvao: #0D0D0D;
+    --sangue: #9E0B0B;
+    --creme: #F6EFE3;
+    --bege: #D9C3B0;
+    --tinta: #3A2A22;             /* marrom escuro para texto sobre creme */
+    --erro: #F4A9A0;              /* vermelho claro, legível no escuro */
+    --linha: rgba(217, 195, 176, 0.25);
+
+    --fonte-titulo: "Instrument Serif", "Times New Roman", serif;
+    --fonte-texto: "Instrument Sans", "Segoe UI", Arial, sans-serif;
+}
+
+
+/* ---------- AJUSTES GERAIS ---------- */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* rolagem suave nos links internos (#) */
+}
+
+body {
+    margin: 0;
+    background-color: var(--carvao);
+    color: var(--bege);
+    font-family: var(--fonte-texto);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+}
+
+/* Títulos: serifada, em caixa alta e com linhas bem juntas */
+h1, h2, h3 {
+    font-family: var(--fonte-titulo);
+    font-weight: 400;
+    color: var(--creme);
+    text-transform: uppercase;
+    line-height: 0.95;
+    margin: 0 0 0.5em;
+}
+
+/* <em> dentro do título: itálico e sem caixa alta */
+h1 em, h2 em, h3 em {
+    text-transform: none;
+}
+
+h2 {
+    font-size: clamp(2.6rem, 6vw, 4.6rem);
+}
+
+h3 {
+    font-size: 1.7rem;
+    line-height: 1.05;
+}
+
+p {
+    margin: 0 0 1em;
+    max-width: 62ch;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* ---------- RÓTULO PEQUENO ---------- */
+/* Texto miúdo acima de alguns títulos, como etiqueta de arquivo */
+
+.rotulo {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+}
+
+
+/* ---------- MENU ---------- */
+/* Links à esquerda, logo no meio, conta à direita.
+   "order" muda a ordem visual sem mexer no HTML. */
+
+.menu {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    padding: 1rem 4vw;
+    background-color: rgba(13, 13, 13, 0.9);
+    border-bottom: 1px solid var(--linha);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.menu a {
+    order: 1;
+    color: var(--bege);
+    text-decoration: none;
+    padding: 0.2rem 0;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.menu a:hover,
+.menu a[aria-current="page"] {
+    color: var(--creme);
+    border-bottom-color: var(--sangue);
+}
+
+/* Logo no meio, empurrando os lados */
+.menu .logo {
+    order: 2;
+    margin: 0 auto;
+    font-family: var(--fonte-titulo);
+    font-style: italic;
+    font-size: 1.6rem;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--creme);
+    border: 0;
+}
+
+.menu a[href="login.html"],
+.menu a[href="cadastro.html"] {
+    order: 3;
+}
+
+
+/* ---------- BOTÕES ---------- */
+/* .botao é um link com cara de botão; button é o botão de verdade */
+
+.botao,
+button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: var(--sangue);
+    color: var(--creme);
+    border: 1px solid var(--sangue);
+    border-radius: 0;
+    font-family: var(--fonte-texto);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.25s, color 0.25s, border-color 0.25s;
+}
+
+.botao:hover,
+button:hover {
+    background-color: var(--creme);
+    color: var(--vinho-escuro);
+    border-color: var(--creme);
+}
+
+
+/* ---------- FOCO VISÍVEL (acessibilidade) ---------- */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--creme);
+    outline-offset: 3px;
+}
+
+
+/* ---------- MOLDURA DE FOTO ---------- */
+/* Borda creme grossa e sombra, como uma foto revelada.
+   .gira-esq e .gira-dir deixam a foto um pouco torta. */
+
+.moldura {
+    background-color: var(--creme);
+    padding: 0.6rem 0.6rem 2.2rem;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+    transition: transform 0.4s;
+}
+
+.gira-esq { transform: rotate(-4deg); }
+.gira-dir { transform: rotate(3deg); }
+
+/* Ao passar o mouse, a foto se endireita */
+.moldura:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+
+/* ---------- BILHETE ---------- */
+/* Papel solto com um pedaço de fita adesiva em cima */
+
+.bilhete {
+    position: relative;
+    display: inline-block;
+    max-width: 16rem;
+    padding: 1rem 1.2rem;
+    background-color: var(--creme);
+    color: var(--tinta);
+    font-family: var(--fonte-titulo);
+    font-style: italic;
+    font-size: 1.2rem;
+    line-height: 1.25;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+    transform: rotate(-3deg);
+}
+
+/* A fita: um retângulo claro e transparente */
+.bilhete::before {
+    content: "";
+    position: absolute;
+    top: -0.7rem;
+    left: 50%;
+    width: 5rem;
+    height: 1.4rem;
+    margin-left: -2.5rem;
+    background-color: rgba(217, 195, 176, 0.75);
+    transform: rotate(4deg);
+}
+
+
+/* ---------- RODAPÉ ---------- */
+
+.rodape {
+    padding: 4rem 4vw 2.5rem;
+    background-color: var(--vinho-escuro);
+    border-top: 1px solid var(--sangue);
+    text-align: center;
+}
+
+.rodape .logo-rodape {
+    margin: 0 auto 0.75rem;
+    max-width: none;
+    font-family: var(--fonte-titulo);
+    font-size: clamp(2.6rem, 8vw, 6rem);
+    line-height: 1;
+    color: var(--creme);
+}
+
+.rodape p {
+    margin: 0 auto;
+    font-size: 0.8rem;
+}
+
+
+/* ---------- CELULAR ---------- */
+
+@media (max-width: 700px) {
+    /* Logo numa linha só e links embaixo, centralizados */
+    .menu {
+        position: static;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.4rem 1.1rem;
+        padding: 1rem;
+    }
+    .menu .logo {
+        order: 0;
+        width: 100%;
+        text-align: center;
+    }
+    .rodape {
+        padding: 3rem 1rem 2rem;
+    }
+}
+
+
+/* ---------- MENOS MOVIMENTO ---------- */
+/* Respeita quem pediu no sistema para reduzir animações */
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}

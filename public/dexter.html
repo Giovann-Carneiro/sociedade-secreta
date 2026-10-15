@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sociedade Secreta | Dexter</title>
+    <!-- Fontes do Google: Instrument Serif (títulos) e Instrument Sans (textos) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600&family=Instrument+Serif:ital@0;1&display=swap">
+    <!-- CSS comum a todas as páginas -->
+    <link rel="stylesheet" href="css/base.css">
+    <!-- CSS só desta página -->
+    <link rel="stylesheet" href="css/dexter.css">
+</head>
+<body>
+
+    <!-- MENU: igual nas 3 páginas -->
+    <nav class="menu">
+        <a href="index.html" class="logo">Sociedade Secreta</a>
+        <a href="index.html">Início</a>
+        <a href="dexter.html" aria-current="page">Dexter</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="login.html">Entrar</a>
+        <a href="cadastro.html">Cadastre-se</a>
+    </nav>
+
+    <main>
+
+        <!-- 1. ABERTURA: a imagem vira fundo e o texto fica por cima -->
+        <section id="abertura" class="imagem-esquerda">
+            <!-- src aponta para a pasta img/ -->
+            <!-- alt vazio: a imagem é só decorativa aqui -->
+            <img src="img/dexter-abertura.jpg" alt="">
+            <div class="texto">
+                <p class="rotulo">Minha série favorita</p>
+                <!-- h1 porque é o título principal desta página -->
+                <h1>Por que <em>Dexter</em> é a minha série favorita</h1>
+                <div class="colunas">
+                    <p>Dexter Morgan analisa manchas de sangue para a polícia de Miami durante o dia. À noite, ele é um serial killer. Quando conheci essa premissa, achei que nunca ia conseguir torcer por ele. Errei feio.</p>
+                    <p>O que muda tudo é o Código de Harry: as regras que o pai adotivo, um policial, criou para controlar o impulso do filho. Dexter só mata quem matou e escapou da justiça, e só depois de ter certeza. É esse limite que me fez acompanhar as oito temporadas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. A MENTE DELE: texto à esquerda, foto à direita -->
+        <section id="mente" class="imagem-direita">
+            <div class="texto">
+                <p class="rotulo">A narração</p>
+                <h2>Dentro da <em>cabeça dele</em></h2>
+                <p class="citacao">A série é narrada pelo próprio Dexter, e isso me prende de um jeito que poucas séries conseguem.</p>
+                <p>Eu escuto o que ele pensa enquanto sorri para os colegas, finge emoções que não sente e chama o próprio impulso de Passageiro Sombrio. Fico ao mesmo tempo desconfortável e cúmplice, e é exatamente aí que a série me ganha.</p>
+            </div>
+            <div class="foto">
+                <img src="img/dexter-mente.jpg" alt="Lâminas de vidro com gotas de sangue guardadas numa caixa" class="moldura gira-dir">
+                <p class="bilhete">Uma gota de sangue para cada caso.</p>
+            </div>
+        </section>
+
+        <!-- 3. ANTAGONISTAS: três fotos reveladas lado a lado -->
+        <section id="antagonistas" class="tres-blocos">
+            <h2>Os vilões que <em>mexeram com ele</em></h2>
+
+            <!-- Bloco em destaque: classe extra "destaque" -->
+            <article class="bloco destaque">
+                <img src="img/trinity.jpg" alt="Silhueta de um homem sob uma lâmpada" class="moldura">
+                <h3>Trinity Killer</h3>
+                <p>Arthur Mitchell é um pai de família respeitado que mata há trinta anos sem nunca ter sido pego. Dexter vê nele o que poderia se tornar e tenta aprender como ele esconde tudo. É a temporada que mais me marcou, e o final dela até hoje me deixa sem ar.</p>
+            </article>
+
+            <article class="bloco">
+                <img src="img/antagonista-2.jpg" alt="Marca de mão numa janela congelada" class="moldura">
+                <h3>Assassino do Caminhão de Gelo</h3>
+                <p>O primeiro grande adversário deixa corpos sem uma gota de sangue, como recados feitos só para Dexter. O jogo entre os dois acaba revelando algo sobre o passado dele que eu não esperava.</p>
+            </article>
+
+            <article class="bloco">
+                <img src="img/antagonista-3.jpg" alt="Distintivo da polícia de Miami" class="moldura">
+                <h3>Sargento Doakes</h3>
+                <p>Doakes não é um assassino, mas é o maior perigo para Dexter: o único colega que sente que tem algo errado com ele. Cada cena dos dois é tensa porque Doakes está certo o tempo todo.</p>
+            </article>
+        </section>
+
+        <!-- 4. ÉTICA: foto do Código à esquerda, texto à direita -->
+        <section id="etica" class="imagem-esquerda">
+            <img src="img/dexter-etica.jpg" alt="Caderno com as regras do Código de Harry escritas à mão" class="moldura gira-esq">
+            <div class="texto">
+                <p class="rotulo">Oito temporadas</p>
+                <h2>Como ele <em>muda</em> ao longo das temporadas</h2>
+                <p>No começo, Dexter segue o Código como uma regra de sobrevivência e diz que não sente nada. Com o tempo, as exceções aparecem: ele protege quem ama, quebra as próprias regras e começa a sentir culpa.</p>
+                <p>O que mais me interessa é ver alguém que se achava vazio descobrir, aos poucos, que é humano. E perceber que, quanto mais ele se aproxima das pessoas, mais perigoso fica para elas.</p>
+            </div>
+        </section>
+
+        <!-- 5. RELAÇÕES: foto larga em cima e três fichas embaixo -->
+        <section id="relacoes" class="imagem-direita">
+            <div class="texto">
+                <h2>As pessoas <em>ao redor dele</em></h2>
+                <p><strong>Rita</strong> Começou como disfarce, uma namorada que ajudava Dexter a parecer normal. Ela também carregava traumas, e foi isso que fez os dois se entenderem. Com ela e com os filhos dela, ele descobriu que podia ter uma família de verdade.</p>
+                <p><strong>Lumen</strong> A mulher que ele salva das mãos de um grupo de criminosos. Pela primeira vez, Dexter divide o segredo com alguém e a ajuda a fazer justiça. É a fase em que ele mais parece em paz.</p>
+                <p><strong>Debra</strong> O coração da série. Irmã adotiva, policial e boca-suja, ela confia nele sem reservas. Quando descobre quem ele é, o amor que sente entra em choque com tudo em que acredita, e essa é a relação mais dolorosa de acompanhar.</p>
+            </div>
+            <img src="img/dexter-relacoes.jpg" alt="Duas pessoas num barco ao pôr do sol" class="moldura">
+        </section>
+
+        <!-- 6. FECHAMENTO -->
+        <section id="fechamento" class="fechamento">
+            <h2>Até onde <em>você iria?</em></h2>
+            <p>Dexter me ensinou que uma boa história de crime não precisa de um herói. Precisa de alguém que faça você se perguntar até onde iria.</p>
+            <a href="quiz.html" class="botao">Resolver um caso</a>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="rodape">
+        <p class="logo-rodape"><em>Sociedade Secreta</em></p>
+        <p>Sociedade Secreta - Projeto individual</p>
+    </footer>
+
+</body>
+</html>

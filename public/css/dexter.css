@@ -1,0 +1,295 @@
+/* =============================================
+   DEXTER (dexter.html)
+   Cores, fontes, menu, botões, molduras,
+   bilhetes e rodapé estão em base.css.
+   ============================================= */
+
+
+/* ---------- 1. ABERTURA ---------- */
+/* A imagem cobre a seção inteira, como fundo,
+   e o texto fica centralizado por cima dela. */
+
+#abertura {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 8rem 4vw 5rem;
+    text-align: center;
+    overflow: hidden;
+}
+
+#abertura img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Camada escura por cima da foto, para o texto aparecer */
+#abertura::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(13, 13, 13, 0.2), rgba(13, 13, 13, 0.92) 75%);
+}
+
+#abertura .texto {
+    position: relative;
+    z-index: 1;   /* fica acima da camada escura */
+    max-width: 70rem;
+}
+
+#abertura h1 {
+    font-size: clamp(3.2rem, 9vw, 8rem);
+    line-height: 0.88;
+    margin-bottom: 2.5rem;
+}
+
+/* Os dois parágrafos lado a lado */
+#abertura .colunas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    text-align: left;
+    color: var(--creme);
+}
+
+
+/* ---------- SEÇÕES COM FOTO + TEXTO ---------- */
+
+.imagem-esquerda,
+.imagem-direita {
+    display: grid;
+    gap: 5rem;
+    align-items: center;
+    padding: 8rem 4vw;
+}
+
+
+/* ---------- 2. A MENTE DELE (seção creme) ---------- */
+
+#mente {
+    grid-template-columns: 6fr 5fr;
+    background-color: var(--creme);
+    color: var(--tinta);
+}
+
+#mente h2 {
+    color: var(--vinho-escuro);
+}
+
+/* Primeira frase em destaque, como a voz do Dexter */
+#mente .citacao {
+    font-family: var(--fonte-titulo);
+    font-style: italic;
+    font-size: 1.9rem;
+    line-height: 1.2;
+    color: var(--vinho);
+}
+
+#mente .foto {
+    position: relative;
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+#mente .bilhete {
+    position: absolute;
+    left: -3rem;
+    bottom: 2.5rem;
+}
+
+
+/* ---------- 3. ANTAGONISTAS (seção vinho) ---------- */
+/* Três fotos; o Trinity fica no meio, maior. */
+
+.tres-blocos {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    padding: 7rem 4vw 8rem;
+    background-color: var(--vinho-escuro);
+}
+
+.tres-blocos h2 {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* "order" muda a posição sem mexer no HTML */
+.bloco:nth-of-type(2) { order: 1; }
+.bloco.destaque       { order: 2; }
+.bloco:nth-of-type(3) { order: 3; }
+
+.bloco img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+}
+
+.bloco:nth-of-type(2) img { transform: rotate(-3deg); }
+.bloco:nth-of-type(3) img { transform: rotate(3deg); }
+
+.bloco h3 {
+    font-size: 1.7rem;
+}
+
+.bloco p {
+    font-size: 0.95rem;
+}
+
+/* Bloco em destaque: foto mais alta e linha vermelha no título */
+.bloco.destaque img {
+    aspect-ratio: 4 / 5;
+}
+
+.bloco.destaque h3 {
+    font-size: 2.4rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--sangue);
+}
+
+
+/* ---------- 4. ÉTICA (seção escura) ---------- */
+
+#etica {
+    grid-template-columns: 5fr 6fr;
+    background:
+        radial-gradient(ellipse at 80% 50%, var(--vinho) 0%, transparent 55%),
+        var(--carvao);
+}
+
+#etica img {
+    width: min(440px, 100%);
+    margin: 0 auto;
+}
+
+
+/* ---------- 5. RELAÇÕES (seção creme) ---------- */
+/* Foto larga em cima e as três pessoas em fichas embaixo */
+
+#relacoes {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    background-color: var(--creme);
+    color: var(--tinta);
+}
+
+#relacoes img {
+    order: -1;   /* a foto aparece antes do texto */
+    width: 100%;
+    max-width: 1100px;
+    height: 420px;
+    margin: 0 auto;
+    object-fit: cover;
+    transform: rotate(-1deg);
+}
+
+#relacoes .texto {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+
+#relacoes h2 {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--vinho-escuro);
+}
+
+#relacoes p {
+    border-top: 2px solid var(--sangue);
+    padding-top: 1.2rem;
+    font-size: 0.97rem;
+}
+
+/* Nome da pessoa vira um título pequeno */
+#relacoes strong {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-family: var(--fonte-titulo);
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--vinho-escuro);
+}
+
+
+/* ---------- 6. FECHAMENTO ---------- */
+
+.fechamento {
+    padding: 8rem 4vw;
+    text-align: center;
+    background:
+        linear-gradient(rgba(43, 5, 5, 0.85), rgba(13, 13, 13, 0.95)),
+        url("../img/dexter-relacoes.jpg") center / cover;
+}
+
+.fechamento h2 {
+    font-size: clamp(3rem, 8vw, 6.5rem);
+}
+
+.fechamento p {
+    margin: 0 auto 2.5rem;
+    max-width: 40ch;
+    font-size: 1.15rem;
+    color: var(--creme);
+}
+
+
+/* ---------- TABLET ---------- */
+
+@media (max-width: 900px) {
+    #abertura .colunas,
+    .imagem-esquerda,
+    .imagem-direita,
+    .tres-blocos,
+    #relacoes .texto,
+    #mente,
+    #etica {
+        grid-template-columns: 1fr;
+    }
+    .imagem-esquerda,
+    .imagem-direita {
+        gap: 3.5rem;
+    }
+    /* No celular a foto da "mente" vem antes do texto */
+    #mente .foto {
+        order: -1;
+    }
+    .bloco {
+        max-width: 420px;
+        margin: 0 auto;
+    }
+    .bloco.destaque {
+        order: 0;
+    }
+}
+
+
+/* ---------- CELULAR ---------- */
+
+@media (max-width: 600px) {
+    #abertura {
+        min-height: 85vh;
+        padding: 6rem 1rem 3rem;
+    }
+    .imagem-esquerda,
+    .imagem-direita,
+    .tres-blocos,
+    .fechamento {
+        padding: 5rem 1rem;
+    }
+    #mente .bilhete {
+        left: -0.5rem;
+        font-size: 1rem;
+    }
+    #relacoes img {
+        height: 240px;
+    }
+}

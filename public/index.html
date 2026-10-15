@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Acentos e caracteres especiais -->
+    <meta charset="UTF-8">
+    <!-- Faz a página se ajustar à tela do celular -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sociedade Secreta | Início</title>
+    <!-- Fontes do Google: Instrument Serif (títulos) e Instrument Sans (textos) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600&family=Instrument+Serif:ital@0;1&display=swap">
+    <!-- CSS comum a todas as páginas -->
+    <link rel="stylesheet" href="css/base.css">
+    <!-- CSS só desta página -->
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+    <!-- MENU: igual nas 3 páginas -->
+    <!-- aria-current="page" marca a página em que a pessoa está -->
+    <nav class="menu">
+        <a href="index.html" class="logo">Sociedade Secreta</a>
+        <a href="index.html" aria-current="page">Início</a>
+        <a href="dexter.html">Dexter</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="login.html">Entrar</a>
+        <a href="cadastro.html">Cadastre-se</a>
+    </nav>
+
+    <!-- 1. CABEÇALHO: foto de fundo, nome do site e frase de mistério -->
+    <header class="cabecalho">
+        <p class="rotulo">Séries, filmes e documentários de crime</p>
+        <h1>Sociedade <em>Secreta</em></h1>
+        <p class="frase">Um arquivo para quem não consegue largar um mistério antes de descobrir o culpado.</p>
+        <a href="#por-que" class="rolar">Abrir o arquivo</a>
+    </header>
+
+    <!-- <main> guarda o conteúdo principal da página -->
+    <main>
+
+        <!-- Foto grande que fica metade no cabeçalho, metade na seção clara -->
+        <div class="foto-entrada">
+            <img src="img/quadro-pistas.jpg" alt="Quadro de investigação com fotos de suspeitos ligadas por um fio vermelho" class="moldura">
+            <p class="bilhete">Caso nº 017: ainda sem culpado.</p>
+        </div>
+
+        <!-- 2. POR QUE SE APAIXONAR: colagem de fotos + 4 cartões -->
+        <section id="por-que" class="secao-motivos">
+
+            <!-- Colagem: fotos sobrepostas e tortas -->
+            <div class="colagem">
+                <img src="img/lupa.jpg" alt="Lupa sobre um documento datilografado" class="moldura gira-esq foto-1">
+                <img src="img/digital.jpg" alt="Impressão digital em papel" class="moldura gira-dir foto-2">
+                <img src="img/cidade-chuva.jpg" alt="Prédios à noite na chuva" class="moldura gira-esq foto-3">
+            </div>
+
+            <div class="motivos-texto">
+                <h2>Por que se <em>apaixonar</em> pelo gênero</h2>
+
+                <!-- Cada <article> é um cartão -->
+                <article class="cartao">
+                    <h3>Faz pensar de outro jeito</h3>
+                    <p>Uma boa história de crime não entrega a resposta. Ela espalha pistas e espera que você junte as peças.</p>
+                    <p>Sem perceber, você passa a desconfiar do óbvio e a olhar a mesma cena por vários ângulos.</p>
+                </article>
+
+                <article class="cartao">
+                    <h3>Desenvolve senso crítico</h3>
+                    <p>Testemunhas mentem, provas enganam e o primeiro suspeito quase nunca é o culpado.</p>
+                    <p>Você aprende a pesar cada informação antes de acreditar nela, inclusive fora da tela.</p>
+                </article>
+
+                <article class="cartao">
+                    <h3>Deixa você mais curioso</h3>
+                    <p>Cada episódio termina com uma pergunta que não deixa você dormir.</p>
+                    <p>E a vontade de entender o porquê leva a pesquisar casos reais, perícia e psicologia.</p>
+                </article>
+
+                <article class="cartao">
+                    <h3>Ensina a pensar fora da caixa</h3>
+                    <p>Os melhores detetives resolvem o caso pelo detalhe que ninguém levou a sério.</p>
+                    <p>Assistir a eles é treinar o olhar para soluções que não estão no caminho mais curto.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- FRASE DE DESTAQUE: faz a ponte para as curiosidades -->
+        <section class="secao-frase">
+            <p class="rotulo">A primeira regra de qualquer investigação</p>
+            <h2>Todo mundo tem <em>algo a esconder</em></h2>
+        </section>
+
+        <!-- 3. CURIOSIDADES: 6 fichas presas com fita -->
+        <!-- O número "Nº 01, Nº 02..." é criado pelo CSS -->
+        <section id="curiosidades" class="secao-curiosidades">
+            <img src="img/fita.jpg" alt="" class="faixa-fita">
+            <h2>Curiosidades <em>do arquivo</em></h2>
+
+            <article class="cartao">
+                <h3>O primeiro detetive</h3>
+                <p>Antes de Sherlock Holmes, veio Auguste Dupin, criado por Edgar Allan Poe em 1841 no conto “Os Assassinatos da Rua Morgue”. Muitos consideram essa a primeira história de detetive.</p>
+            </article>
+
+            <article class="cartao">
+                <h3>A rainha do crime</h3>
+                <p>Agatha Christie é a romancista mais vendida de todos os tempos, com cerca de 2 bilhões de livros. Quase todos são mistérios de assassinato.</p>
+            </article>
+
+            <article class="cartao">
+                <h3>O nome “noir”</h3>
+                <p>A palavra veio de críticos franceses. Depois da Segunda Guerra, eles chamaram de “film noir” (filme negro) os filmes policiais americanos cheios de sombras e personagens sem saída.</p>
+            </article>
+
+            <article class="cartao">
+                <h3>O efeito CSI</h3>
+                <p>O sucesso de séries de perícia fez muitos jurados reais passarem a esperar provas de DNA em todo julgamento. Os cursos de ciência forense também ficaram mais procurados.</p>
+            </article>
+
+            <article class="cartao">
+                <h3>Um podcast no tribunal</h3>
+                <p>Em 2014, o podcast “Serial” investigou a condenação de Adnan Syed. A repercussão foi tão grande que o caso voltou a ser discutido na justiça americana.</p>
+            </article>
+
+            <article class="cartao">
+                <h3>Sherlock na perícia real</h3>
+                <p>Edmond Locard, um dos pais da ciência forense, era fã de Sherlock Holmes. Dele vem a ideia de que todo contato deixa um vestígio, base da investigação até hoje.</p>
+            </article>
+        </section>
+
+        <!-- 4. CHAMADA FINAL: foto da taça + convite para o quiz -->
+        <section id="chamada" class="secao-chamada">
+            <div class="chamada-foto">
+                <img src="img/taca.jpg" alt="Taça de vinho tinto em uma mesa escura" class="moldura gira-esq">
+                <p class="bilhete">Galeria Duarte, 23h40. Quem serviu a última taça?</p>
+            </div>
+            <div class="chamada-texto">
+                <p class="rotulo">Um caso esperando por você</p>
+                <h2>Pronto para <em>resolver um caso?</em></h2>
+                <p>Uma morte numa galeria de arte, quatro suspeitos e oito pistas. No final, você aponta o culpado e descobre que tipo de investigador você é.</p>
+                <!-- Link com cara de botão (visual no base.css) -->
+                <a href="quiz.html" class="botao">Resolver um caso</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 5. RODAPÉ -->
+    <footer class="rodape">
+        <p class="logo-rodape"><em>Sociedade Secreta</em></p>
+        <p>Sociedade Secreta - Projeto individual</p>
+    </footer>
+
+</body>
+</html>

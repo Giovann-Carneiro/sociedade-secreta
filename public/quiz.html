@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sociedade Secreta | Quiz</title>
+    <!-- Fontes do Google: Instrument Serif (títulos) e Instrument Sans (textos) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600&family=Instrument+Serif:ital@0;1&display=swap">
+    <!-- CSS comum a todas as páginas -->
+    <link rel="stylesheet" href="css/base.css">
+    <!-- CSS só desta página -->
+    <link rel="stylesheet" href="css/quiz.css">
+</head>
+<body>
+
+    <!-- MENU: igual nas 3 páginas -->
+    <nav class="menu">
+        <a href="index.html" class="logo">Sociedade Secreta</a>
+        <a href="index.html">Início</a>
+        <a href="dexter.html">Dexter</a>
+        <a href="quiz.html" aria-current="page">Quiz</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="login.html">Entrar</a>
+        <a href="cadastro.html">Cadastre-se</a>
+    </nav>
+
+    <main>
+        <!-- Cada tela é uma <section>. O quiz.js mostra uma e esconde as outras. -->
+        <!-- O atributo "hidden" deixa a tela escondida. -->
+
+        <!-- TELA 1: abertura -->
+        <section id="tela-abertura" class="tela">
+            <img src="img/pasta.jpg" alt="Pasta de arquivo com o carimbo Confidencial" class="moldura gira-dir foto-tela">
+            <p class="rotulo">Caso nº 017</p>
+            <h1>Um <em>novo caso</em></h1>
+            <p>Recebi este arquivo há uma hora e ainda não consegui fechar. Uma morte numa festa cheia, quatro suspeitos e nenhuma confissão. Preciso de alguém que veja o que eu deixei passar.</p>
+            <p>São 8 perguntas. Não existe resposta errada: cada escolha mostra como você investiga.</p>
+            <button id="botao-comecar">Abrir o caso</button>
+        </section>
+
+        <!-- TELA 2: o caso -->
+        <section id="tela-caso" class="tela" hidden>
+            <img src="img/taca.jpg" alt="Taça de vinho tinto em uma mesa escura" class="moldura gira-esq foto-tela">
+            <p class="rotulo">Sexta-feira, 23h40</p>
+            <h2>O último brinde da <em>Galeria Duarte</em></h2>
+            <p>Helena Duarte, dona da galeria, é encontrada morta no próprio escritório, pouco depois de brindar a abertura de uma nova exposição. A perícia confirma: envenenamento.</p>
+            <p>Quatro pessoas estiveram perto dela naquela noite:</p>
+            <!-- Lista dos suspeitos com o papel de cada um -->
+            <ul class="lista-suspeitos">
+                <li><strong>Beatriz Leme</strong> a garçonete que serviu o vinho</li>
+                <li><strong>Otávio Duarte</strong> o marido, que herda o seguro de vida</li>
+                <li><strong>Rafael Moura</strong> o restaurador dos quadros da galeria</li>
+                <li><strong>Lívia Prado</strong> a sócia, que queria vender a galeria</li>
+            </ul>
+            <p>Leia cada pista com atenção. No final, você vai apontar o culpado.</p>
+            <button id="botao-investigar">Investigar</button>
+        </section>
+
+        <!-- TELA 3: perguntas (o conteúdo é preenchido pelo quiz.js) -->
+        <section id="tela-perguntas" class="tela" hidden>
+            <!-- Ex.: "Pergunta 1 de 8" -->
+            <p id="contador"></p>
+            <h2 id="enunciado"></h2>
+            <!-- As 4 alternativas são criadas aqui pelo JS -->
+            <div id="alternativas"></div>
+            <!-- Mensagem caso a pessoa tente avançar sem escolher -->
+            <!-- aria-live faz o leitor de tela anunciar a mensagem -->
+            <p id="aviso-pergunta" aria-live="polite"></p>
+            <button id="botao-proxima">Próxima</button>
+        </section>
+
+        <!-- TELA 4: veredito (escolher o assassino) -->
+        <section id="tela-veredito" class="tela" hidden>
+            <p class="rotulo">O veredito</p>
+            <h2>Quem é o <em>assassino?</em></h2>
+            <p>Você já tem todas as pistas. Escolha um suspeito e faça a acusação.</p>
+            <!-- Os suspeitos são criados aqui pelo JS -->
+            <div id="suspeitos"></div>
+            <!-- Mensagem de erro ou aviso -->
+            <p id="aviso-veredito" aria-live="polite"></p>
+            <button id="botao-acusar">Acusar</button>
+        </section>
+
+        <!-- TELA 5: resultado -->
+        <section id="tela-resultado" class="tela" hidden>
+            <p class="carimbo">Resolvido</p>
+            <h2>Caso <em>encerrado</em></h2>
+            <p>Foi Rafael Moura. Ele falsificou a assinatura do quadro mais valioso da galeria durante a restauração. Quando Helena descobriu a fraude, ele saiu do salão no meio do discurso de Otávio e envenenou a taça dela com o solvente da oficina.</p>
+            <!-- Ex.: "Você é um(a) Observador" -->
+            <p id="texto-perfil"></p>
+            <a href="dashboard.html" class="botao">Ver meu dashboard</a>
+        </section>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="rodape">
+        <p class="logo-rodape"><em>Sociedade Secreta</em></p>
+        <p>Sociedade Secreta - Projeto individual</p>
+    </footer>
+
+    <!-- O script fica no final para o HTML já existir quando ele rodar -->
+    <script src="js/quiz.js"></script>
+</body>
+</html>

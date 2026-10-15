@@ -1,0 +1,291 @@
+/* =============================================
+   QUIZ (quiz.html)
+   Cores, fontes, menu, botões, molduras,
+   bilhetes e rodapé estão em base.css.
+   ============================================= */
+
+
+/* ---------- FUNDO DA PÁGINA ---------- */
+/* Quadro de pistas escurecido atrás das telas */
+
+main {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 4vw;
+    background:
+        linear-gradient(rgba(43, 5, 5, 0.8), rgba(13, 13, 13, 0.92)),
+        url("../img/quadro-pistas.jpg") center / cover;
+}
+
+
+/* ---------- AS TELAS ---------- */
+/* Cada tela é uma folha creme presa com fita no quadro. */
+
+.tela {
+    position: relative;
+    width: 100%;
+    max-width: 46rem;
+    padding: 4rem 3.5rem 3rem;
+    background-color: var(--creme);
+    color: var(--tinta);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55);
+}
+
+/* IMPORTANTE: sem esta regra, o "hidden" do HTML
+   não esconderia as telas, porque o CSS acima muda o display. */
+.tela[hidden] {
+    display: none;
+}
+
+/* Fita adesiva no topo da folha */
+.tela::before {
+    content: "";
+    position: absolute;
+    top: -0.9rem;
+    left: 50%;
+    width: 7rem;
+    height: 1.8rem;
+    margin-left: -3.5rem;
+    background-color: rgba(217, 195, 176, 0.85);
+    transform: rotate(-2deg);
+}
+
+.tela h1,
+.tela h2 {
+    color: var(--vinho-escuro);
+}
+
+.tela h1 {
+    font-size: clamp(3rem, 8vw, 5rem);
+}
+
+.tela h2 {
+    font-size: clamp(2.2rem, 6vw, 3.4rem);
+}
+
+.tela .rotulo {
+    color: var(--sangue);
+}
+
+.tela button,
+.tela .botao {
+    margin-top: 1.25rem;
+}
+
+/* Foto presa no canto da folha, saindo para fora */
+.foto-tela {
+    position: absolute;
+    top: -2.5rem;
+    right: -5rem;
+    width: 210px;
+}
+
+/* Título e primeiro parágrafo mais estreitos, para não ficarem embaixo da foto */
+.foto-tela ~ h1,
+.foto-tela ~ h2,
+.foto-tela ~ h1 + p,
+.foto-tela ~ h2 + p {
+    max-width: 78%;
+}
+
+
+/* ---------- TELA 2: O CASO ---------- */
+
+.tela .lista-suspeitos {
+    list-style: none;
+    margin: 0 0 1.5rem;
+    padding: 0;
+    border-top: 1px solid var(--tinta);
+}
+
+.lista-suspeitos li {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1rem;
+    align-items: baseline;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid rgba(58, 42, 34, 0.3);
+    font-size: 0.95rem;
+}
+
+/* Nome do suspeito com a fonte dos títulos */
+.lista-suspeitos strong {
+    min-width: 9rem;
+    font-family: var(--fonte-titulo);
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--vinho-escuro);
+}
+
+
+/* ---------- TELA 3: PERGUNTAS ---------- */
+
+#contador {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sangue);
+    margin-bottom: 1rem;
+}
+
+/* O enunciado é longo: sem caixa alta para ficar legível */
+#enunciado {
+    font-size: clamp(1.6rem, 4vw, 2.1rem);
+    line-height: 1.15;
+    text-transform: none;
+    margin-bottom: 2rem;
+}
+
+/* O quiz.js coloca um <br> depois de cada opção;
+   como as opções já ficam uma embaixo da outra, escondemos o <br>. */
+#alternativas br,
+#suspeitos br {
+    display: none;
+}
+
+
+/* ---------- OPÇÕES (alternativas e suspeitos) ---------- */
+/* Cada <label> vira uma faixa clicável. */
+
+#alternativas label,
+#suspeitos label {
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+    margin-bottom: 0.6rem;
+    padding: 0.9rem 1.1rem;
+    border: 1px solid rgba(58, 42, 34, 0.35);
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+}
+
+#alternativas label:hover,
+#suspeitos label:hover {
+    border-color: var(--vinho-escuro);
+    background-color: rgba(217, 195, 176, 0.35);
+}
+
+/* Opção marcada: :has() verifica se o label tem um input marcado */
+#alternativas label:has(input:checked),
+#suspeitos label:has(input:checked) {
+    border-color: var(--vinho-escuro);
+    background-color: var(--vinho-escuro);
+    color: var(--creme);
+}
+
+/* Bolinha do rádio na cor da identidade */
+#alternativas input,
+#suspeitos input {
+    accent-color: var(--sangue);
+    margin-top: 0.35rem;
+}
+
+/* Foco visível quando navega pelo teclado */
+#alternativas label:has(input:focus-visible),
+#suspeitos label:has(input:focus-visible) {
+    outline: 2px solid var(--sangue);
+    outline-offset: 2px;
+}
+
+
+/* ---------- TELA 4: VEREDITO ---------- */
+/* Suspeitos em duas colunas, com o nome grande */
+
+#suspeitos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 0.6rem;
+}
+
+#suspeitos label {
+    align-items: center;
+    padding: 1.2rem 1.1rem;
+    font-family: var(--fonte-titulo);
+    font-size: 1.5rem;
+}
+
+#suspeitos input {
+    margin-top: 0;
+}
+
+
+/* ---------- MENSAGENS DE ERRO ---------- */
+/* Ficam logo abaixo das opções, perto de onde a pessoa clicou. */
+
+#aviso-pergunta,
+#aviso-veredito {
+    min-height: 1.6em;  /* reserva o espaço e a tela não "pula" */
+    margin: 0.75rem 0 0;
+    color: var(--sangue);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+
+/* ---------- TELA 5: RESULTADO ---------- */
+
+/* Carimbo vermelho torto no canto da folha */
+.carimbo {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    margin: 0;
+    padding: 0.3rem 1rem;
+    border: 3px solid var(--sangue);
+    color: var(--sangue);
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transform: rotate(-10deg);
+    opacity: 0.85;
+}
+
+#texto-perfil {
+    margin: 1.5rem 0 0;
+    padding: 1.5rem;
+    background-color: var(--vinho-escuro);
+    font-family: var(--fonte-titulo);
+    font-size: 2.2rem;
+    line-height: 1.1;
+    color: var(--creme);
+    text-align: center;
+    max-width: none;
+}
+
+
+/* ---------- TABLET E CELULAR ---------- */
+
+@media (max-width: 1000px) {
+    /* A foto deixa de sair da folha e fica no topo */
+    .foto-tela {
+        position: static;
+        width: 160px;
+        margin: -1rem 0 1.5rem auto;
+    }
+    .foto-tela ~ h1,
+    .foto-tela ~ h2,
+    .foto-tela ~ h1 + p,
+    .foto-tela ~ h2 + p {
+        max-width: none;
+    }
+}
+
+@media (max-width: 600px) {
+    main {
+        padding: 3.5rem 1rem;
+    }
+    .tela {
+        padding: 3rem 1.25rem 2rem;
+    }
+    #suspeitos {
+        grid-template-columns: 1fr;
+    }
+    .carimbo {
+        top: 1rem;
+        right: 1rem;
+        font-size: 0.8rem;
+    }
+}
